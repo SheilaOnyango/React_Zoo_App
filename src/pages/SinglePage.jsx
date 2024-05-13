@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 
-const SinglePage = () => {
-  const category = useParams();
+const SinglePage = ({ ...rest }) => {
+  const params = useParams();
 
   const categoryItems = rest[params.category];
 
@@ -9,7 +9,7 @@ const SinglePage = () => {
 
   return (
     <>
-      <h2>Single page will be here</h2>
+      <h2>{data.name}</h2>
     </>
   );
 };
