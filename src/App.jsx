@@ -8,6 +8,7 @@ import About from "./pages/About";
 import ErrorPage from "./pages/ErrorPage";
 import CategoryPage from "./pages/CategoryPage";
 import SinglePage from "./pages/SinglePage";
+import "./App.css";
 
 function App() {
   const [zoo, setZoo] = useState({ animals, birds, insects, fishes });
