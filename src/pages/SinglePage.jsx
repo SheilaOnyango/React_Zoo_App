@@ -10,30 +10,30 @@ const SinglePage = ({ ...rest }) => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    {
-      axios
-        .get(`https://en.wikipedia.org/api/rest_v1/page/summary/${data.name}`)
-        .then((res) => {
-          setText(res.data);
-        })
-        .catch((error) => {
-          console.error("error", error);
-          setText({ extract: "An error occurred." });
-        });
-    }
+    axios
+      .get(`https://en.wikipedia.org/api/rest_v1/page/summary/${data.name}`)
+      .then((res) => {
+        setText(res.data);
+      })
+      .catch((error) => {
+        console.error("error", error);
+        setText({ extract: "An error occurred." });
+      });
   }, [data]);
 
   return (
     <div className="single-page">
       <h2 className="page-title">{data.name.toUpperCase()}</h2>
-      <img
-        className="page-image"
-        src={`https://source.unsplash.com/400x400/?${data.name}`}
-        alt={data.name}
-      ></img>
-      <p className="page-content">
-        {text ? text.extract : "Loading content..."}
-      </p>
+      <div className="page-content-container">
+        <img
+          className="page-image"
+          src={`https://source.unsplash.com/400x400/?${data.name}`}
+          alt={data.name}
+        />
+        <p className="page-content">
+          {text ? text.extract : "Loading content..."}
+        </p>
+      </div>
       <button className="go-back-button" onClick={() => navigate(-1)}>
         Go Back
       </button>
