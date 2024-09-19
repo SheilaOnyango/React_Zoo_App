@@ -1,5 +1,5 @@
 import { useParams, useNavigate } from "react-router-dom";
-import axios from "axios";
+import { Axios } from "axios";
 import { useEffect, useState } from "react";
 
 const SinglePage = ({ ...rest }) => {
